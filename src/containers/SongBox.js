@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CommentForm from "../components/CommentForm";
 import CommentList from "../components/CommentList";
 import SongList from "../components/SongList";
 
@@ -32,12 +33,22 @@ const SongBox = () => {
            text : "It's a terrible song"
            
         }
+
+
     ])
+    const addComment = (submitComment) => {
+        submitComment.id = Date.now;
+        const updatedComments = [...comments, submitComment]
+        setComments(updatedComments)
+
+    }
     return(
         <>
         <h1> I am song box</h1>
         <SongList   songs={songs}/>
         <CommentList  comments = {comments}/>
+        <h2>Add a Comment</h2>
+        <CommentForm onCommentSubmit={(comment) => addComment(comment)}/>
         </>
 
     );
