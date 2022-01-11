@@ -1,8 +1,11 @@
 import React from "react";
 
-const Song = () => {
+const Song = ({title, artist, url}) => {
     return(
-        <p> I am a song</p>
+        
+        <>
+        <a href = {url}>{title} by {artist}</a>
+        </>
     )
 }
 
