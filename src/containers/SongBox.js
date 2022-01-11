@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CommentList from "../components/CommentList";
 import SongList from "../components/SongList";
 
 const SongBox = () => {
@@ -24,10 +25,19 @@ const SongBox = () => {
 
         }
     ])
+    const [comments, setComments] = useState([
+        {
+            id : 1,
+           name : "Jack",
+           text : "It's a terrible song"
+           
+        }
+    ])
     return(
         <>
         <h1> I am song box</h1>
         <SongList   songs={songs}/>
+        <CommentList  comments = {comments}/>
         </>
 
     );
